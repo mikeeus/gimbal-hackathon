@@ -80,14 +80,14 @@ export default function Contract() {
       >
         <ContractResolver setContract={setContract} contract={contract} />
 
-        {isDeployedToActiveChain === true && (
+        {contract && isDeployedToActiveChain === true && (
           <Form.Provider
             onFormFinish={async (name, { forms }) => {
               const params = forms[name].getFieldsValue();
 
               let isView = false;
               /*eslint no-unsafe-optional-chaining: "error"*/
-              for (let method of contract?.abi) {
+              for (let method of contract.abi) {
                 if (method.name !== name) continue;
                 console.log(method);
                 if (method.stateMutability === "view") isView = true;
