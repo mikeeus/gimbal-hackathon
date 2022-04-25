@@ -14,13 +14,13 @@ import ERC20Transfers from "components/ERC20Transfers";
 import DEX from "components/DEX";
 import NFTBalance from "components/NFTBalance";
 import Wallet from "components/Wallet";
-import { Layout, Tabs } from "antd";
+import { Col, Layout, Row, Tabs } from "antd";
 import "antd/dist/antd.css";
 //import NativeBalance from "components/NativeBalance";
 import "./style.css";
 import QuickStart from "components/QuickStart";
 import Contract from "components/Contract/Contract";
-import Text from "antd/lib/typography/Text";
+//import Text from "antd/lib/typography/Text";
 import Ramper from "components/Ramper";
 import MenuItems from "./components/MenuItems";
 import About from "./components/Home/About";
@@ -34,7 +34,7 @@ const styles = {
     justifyContent: "center",
     fontFamily: "Roboto, sans-serif",
     color: "#041836",
-    marginTop: "130px",
+    marginTop: "55px",
     padding: "10px",
   },
   header: {
@@ -49,6 +49,10 @@ const styles = {
     borderBottom: "2px solid rgba(0, 0, 0, 0.06)",
     padding: "0 10px",
     boxShadow: "0 1px 10px rgb(151 164 175 / 10%)",
+  },
+  bannerX: {
+    display: "flex",
+    alignItems: "center",
   },
   headerRight: {
     display: "flex",
@@ -135,8 +139,24 @@ const App = ({ isServerInfo }) => {
           </Switch>
         </div>
       </Router>
-      <Footer style={{ textAlign: "center" }}>
-        <Text style={{ display: "block" }}>⭐ footer</Text>
+      <Footer
+        style={{
+          textAlign: "center",
+          backgroundColor: "#21bf96",
+          minHeight: "121px",
+        }}
+      >
+        <footer id="footer" className="dark">
+          <div className="footer-wrap">
+            <Row>
+              <Col md={24} sm={24} xs={24}>
+                <div className="footer-center">
+                  <p style={{ paddingTop: "25px" }}>Gimbal 2022</p>
+                </div>
+              </Col>
+            </Row>
+          </div>
+        </footer>
       </Footer>
     </Layout>
   );
@@ -147,7 +167,7 @@ export const Logo = () => (
     <svg
       width="160"
       height="38"
-      viewBox="0 0 50 40"
+      viewBox="0 -6 50 40"
       fill="#252626"
       xmlns="http://www.w3.org/2000/svg"
     >
