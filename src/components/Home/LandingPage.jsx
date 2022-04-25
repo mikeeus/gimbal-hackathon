@@ -42,17 +42,17 @@ const LandingPage = () => {
           <Col md={8} sm={24} style={{margin:"7em 0", display: "flex", justifyContent: "center", flexDirection:"column", alignItems:"center"}}  >
             <img width="82px" src="https://zos.alipayobjects.com/rmsportal/WBnVOjtIlGWbzyQivuyq.png" alt="img" />
             <h2>Instant payout</h2>
-            <p style={{padding:"0 3em", textAlign:"center"}}>Start earning from the second you deposit. Follow up with real-time data.</p>
+            <p style={{padding:"0 3em", textAlign:"center"}}>Start earning one minute after you deposit. Follow up with real-time data.</p>
           </Col>
           <Col md={8} sm={24} style={{margin:"7em 0", display: "flex", justifyContent: "center", flexDirection:"column", alignItems:"center"}}>
             <img width="82px" src="https://zos.alipayobjects.com/rmsportal/YPMsLQuCEXtuEkmXTTdk.png" alt="img" />
             <h2>Custom dashboard</h2>
-            <p style={{padding:"0 3em", textAlign:"center"}}>Your investment data at the point of your fingerprint. Anytime. Anywhere</p>
+            <p style={{padding:"0 3em", textAlign:"center"}}>Your investment data at the point of your fingertips. Anytime. Anywhere.</p>
           </Col>
           <Col md={8} sm={24} style={{margin:"7em 0", display: "flex", justifyContent: "center", flexDirection:"column", alignItems:"center"}}>
             <img width="82px" src="https://zos.alipayobjects.com/rmsportal/EkXWVvAaFJKCzhMmQYiX.png" alt="img" />
             <h2>Compound interest</h2>
-            <p style={{padding:"0 3em", textAlign:"center"}}>You only win. Your compound interest makes your earn on your earnings.</p>
+            <p style={{padding:"0 3em", textAlign:"center"}}>You only win. Your compound interest makes you earn on your earnings.</p>
           </Col>
         </Row>
     </div>
