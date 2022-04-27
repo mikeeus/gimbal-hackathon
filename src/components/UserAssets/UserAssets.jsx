@@ -1,5 +1,7 @@
-import { useERC20Balances } from "react-moralis";
+import { useMoralis, useERC20Balances } from "react-moralis";
 import { useState } from "react";
+import { Skeleton, Table } from "antd";
+import { getEllipsisTxt } from "../../helpers/formatters";
 
 const styles = {
   walletIcon: {
@@ -42,12 +44,51 @@ const styles = {
 
 function UserAssets(props) {
   const { data: assets } = useERC20Balances(props);
-  console.log(assets);
-
+  const { Moralis } = useMoralis();
   const [show, setShow] = useState(false);
 
+  const columns = [
+    {
+      title: "",
+      dataIndex: "logo",
+      key: "logo",
+      render: (logo) => (
+        <img
+          src={logo || "https://etherscan.io/images/main/empty-token.png"}
+          alt="nologo"
+          width="28px"
+          height="28px"
+        />
+      ),
+    },
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+      render: (name) => name,
+    },
+    {
+      title: "Symbol",
+      dataIndex: "symbol",
+      key: "symbol",
+      render: (symbol) => symbol,
+    },
+    {
+      title: "Balance",
+      dataIndex: "balance",
+      key: "balance",
+      render: (value, item) =>
+        parseFloat(Moralis?.Units?.FromWei(value, item.decimals)).toFixed(6),
+    },
+    {
+      title: "Address",
+      dataIndex: "token_address",
+      key: "token_address",
+      render: (address) => getEllipsisTxt(address, 5),
+    },
+  ];
+
   var displayAssets = () => {
-    console.log("clicked");
     setShow((current) => !current);
   };
 
@@ -64,17 +105,22 @@ function UserAssets(props) {
           />
         </div>
       </div>
-      <div style={styles.table}>
-        <table style={{ display: show ? "block" : "none" }}>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Symbol</th>
-              <th>Balance</th>
-              <th>Address</th>
-            </tr>
-          </thead>
-        </table>
+      <div
+        style={{
+          display: show ? "block" : "none",
+          marginTop: "20px",
+        }}
+      >
+        <Skeleton loading={!assets}>
+          <Table
+            style={{ borderRadius: "15px" }}
+            dataSource={assets}
+            columns={columns}
+            rowKey={(record) => {
+              return record.token_address;
+            }}
+          />
+        </Skeleton>
       </div>
     </div>
   );
